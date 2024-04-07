@@ -5,12 +5,14 @@ import { IType } from '../shared/models/productType';
 import { IPagination } from '../shared/models/pagination';
 import { map } from 'rxjs';
 import { ShopParams } from '../shared/models/shopParams';
+import { IProduct } from '../shared/models/product';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
-baseUrl = "https://localhost:5001/api/";
+baseUrl = environment.apiUrl;
 
   constructor(private http:HttpClient) { }
 
@@ -39,6 +41,10 @@ baseUrl = "https://localhost:5001/api/";
         return response.body;
       })
     );
+  }
+
+  getProduct(id: number) {
+    return this.http.get<IProduct>(this.baseUrl + 'products/' + id);
   }
 
   getBrands() {

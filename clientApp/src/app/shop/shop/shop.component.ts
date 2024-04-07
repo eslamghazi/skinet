@@ -43,28 +43,25 @@ export class ShopComponent implements OnInit {
     this.shopParams.pageNumber = response.pageIndex
     this.shopParams.pageSize = response.pageSize
     this.totalCount = response.count
-  }
-), error => {
+  }, error => {
     console.error(error)
-  }
+  })
 }
 
 getBrands() {
   this.getBrandsSubscription = this.shopService.getBrands().subscribe((response) => {
     this.brands = [{id:0, name:'All'}, ...response]
-  }
-), error => {
+  }, error => {
     console.error(error)
-  }
+  })
 }
 
 getTypes() {
   this.getTypesSubscription = this.shopService.getTypes().subscribe((response) => {
     this.types = [{id:0, name:'All'}, ...response]
-  }
-), error => {
+  }, error => {
     console.error(error)
-  }
+  })
 }
 
 onBrandSelected(brandId:number){
