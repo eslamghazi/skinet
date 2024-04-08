@@ -6,23 +6,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { ShopModule } from './shop/shop.module';
 import { HomeModule } from './home/home.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
-    HomeModule
+    HomeModule,
+    NgxSpinnerModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
